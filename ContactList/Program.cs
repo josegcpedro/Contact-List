@@ -38,7 +38,7 @@ class Program
                 DeleteAccount();
                 break;
             case "3":
-                //ModifyAccount();
+                ModifyAccount();
                 break;
             case "4":
                 ShowAccounts();
@@ -101,6 +101,40 @@ class Program
             {
                 contacts.Remove(contactToDelete);
             }
+        }
+        else
+        {
+            Console.WriteLine("Contact pas trouvé!");
+        }
+    }
+
+    static void ModifyAccount()
+    {
+        Console.WriteLine("Quel est le prénom du contact que voulez-vous modifier?");
+        string desiredModificationName = Console.ReadLine();
+        Contact contactToModify = contacts.Find(contact => contact.Name.Equals(desiredModificationName, StringComparison.OrdinalIgnoreCase));
+
+        if (contactToModify != null)
+        {
+            Console.WriteLine("Que voulez vous modifier?");
+            Console.WriteLine("1. son Prénom");
+            Console.WriteLine("2. son Nom");
+            Console.WriteLine("3. son numero");
+            string desiredModification = Console.ReadLine();
+
+            switch (desiredModification)
+            {
+                case "1":
+                    Console.WriteLine("Quel est le nouveau prénom?");
+                    string newName = Console.ReadLine();
+                    contactToModify.Name = newName;
+                    Console.WriteLine("Nom changé avec succès!");
+                    break;
+            }
+
+
+
+
         }
         else
         {
