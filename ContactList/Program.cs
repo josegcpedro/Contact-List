@@ -136,6 +136,12 @@ class Program
                     contactToModify.LastName = newLastName;
                     Console.WriteLine("Nom changé avec succès!");
                     break;
+                case "3":
+                    Console.WriteLine("Quel est le nouveau numéro?");
+                    string newNumber = Console.ReadLine();
+                    contactToModify.Number = newNumber;
+                    Console.WriteLine("Nom changé avec succès!");
+                    break;
             }
 
 
