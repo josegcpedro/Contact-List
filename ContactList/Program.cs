@@ -35,17 +35,17 @@ class Program
                 AddContacts();
                 break;
             case "2":
-                //DeleteAccount();
+                DeleteAccount();
                 break;
             case "3":
                 //ModifyAccount();
                 break;
             case "4":
-                //ShowAccounts();
+                ShowAccounts();
                 break;
             case "5":
                 Console.WriteLine("Au revoir !");
-                return true; // Quitter la boucle
+                return true;
             default:
                 Console.WriteLine("Choix invalide. Essayez à nouveau.");
                 break;
@@ -72,7 +72,40 @@ class Program
 
     static void ShowAccounts()
     {
-        Console.WriteLine("Voici le compte:")
+        if (contacts.Count == 0)
+        {
+            Console.WriteLine("Aucun contact trouvée");
+        }
+        else
+        {
+            foreach (var contact in contacts)
+            {
+                Console.WriteLine(contact.Name + " " + contact.LastName + " " + contact.Number);
+            }
+        }
+    }
+
+    static void DeleteAccount()
+    {
+        Console.WriteLine("Quel est le prénom du contact que voulez-vous supprimer?");
+        string desiredDeletion = Console.ReadLine();
+        Contact contactToDelete = contacts.Find(contact => contact.Name.Equals(desiredDeletion, StringComparison.OrdinalIgnoreCase));
+
+        if (contactToDelete != null)
+        {
+            Console.WriteLine($"Voulez-vous supprimer {contactToDelete.Name}?");
+            Console.WriteLine("1. Oui");
+            Console.WriteLine("2. Non");
+            string choix = Console.ReadLine();
+            if (choix == "1")
+            {
+                contacts.Remove(contactToDelete);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Contact pas trouvé!");
+        }
     }
 }
 
