@@ -41,7 +41,7 @@ class Program
                 //ModifyAccount();
                 break;
             case "4":
-                //ShowAccounts();
+                ShowAccounts();
                 break;
             case "5":
                 Console.WriteLine("Au revoir !");
@@ -72,7 +72,17 @@ class Program
 
     static void ShowAccounts()
     {
-        Console.WriteLine("Voici le compte:")
+        if (contacts.Count == 0)
+        {
+            Console.WriteLine("Aucun contact trouvée");
+        }
+        else
+        {
+            foreach (var contact in contacts)
+            {
+                Console.WriteLine(contact.Name + " " + contact.LastName + " " + contact.Number);
+            }
+        }
     }
 }
 
