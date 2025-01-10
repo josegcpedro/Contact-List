@@ -12,13 +12,14 @@ class Program
         string name = Console.ReadLine();
         Console.WriteLine($"Bonjour {name}, que voulez-vous faire");
 
-        while (true)
+        bool quitter = false;
+        while (!quitter)
         {
-            Menu();
+            quitter = Menu();
         }
     }
 
-    static void Menu()
+    static bool Menu()
     {
         Console.WriteLine("1. Ajouter un contact");
         Console.WriteLine("2. Supprimer un contact");
@@ -42,9 +43,14 @@ class Program
             case "4":
                 //ShowAccounts();
                 break;
+            case "5":
+                Console.WriteLine("Au revoir !");
+                return true; // Quitter la boucle
             default:
+                Console.WriteLine("Choix invalide. Essayez à nouveau.");
                 break;
         }
+        return false;
     }
     static void AddContacts()
     {
