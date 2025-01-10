@@ -69,6 +69,11 @@ class Program
 
         Menu();
     }
+
+    static void ShowAccounts()
+    {
+        Console.WriteLine("Voici le compte:")
+    }
 }
 
 class Contact
