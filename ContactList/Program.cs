@@ -25,7 +25,8 @@ class Program
         Console.WriteLine("2. Supprimer un contact");
         Console.WriteLine("3. Modifier un contact");
         Console.WriteLine("4. Afficher les contacts");
-        Console.WriteLine("5. Quitter");
+        Console.WriteLine("5. Chercher un contact");
+        Console.WriteLine("6. Quitter");
 
         string choix = Console.ReadLine();
 
@@ -44,6 +45,9 @@ class Program
                 ShowAccounts();
                 break;
             case "5":
+                SearchContact();
+                break;
+            case "6":
                 Console.WriteLine("Au revoir !");
                 return true;
             default:
@@ -151,6 +155,18 @@ class Program
         else
         {
             Console.WriteLine("Contact pas trouvé!");
+        }
+    }
+
+    static void SearchContact()
+    {
+        Console.WriteLine("Quel est le prénom de votre contact que vous souhaitez chercher?");
+        string desiredSearchName = Console.ReadLine();
+        Contact contactToSearch = contacts.Find(contact => contact.Name.Equals(desiredSearchName, StringComparison.OrdinalIgnoreCase));
+
+        if (contactToSearch != null)
+        {
+            Console.WriteLine($"Voici les informations du contact :\nPrénom : {contactToSearch.Name}\nNom de famille : {contactToSearch.LastName}\nNuméro : {contactToSearch.Number}");
         }
     }
 }
