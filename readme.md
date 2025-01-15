@@ -10,8 +10,3 @@ This is a simple contact list application developed in C#. It allows you to add,
 - **Display contacts**: Displays all the contacts stored in the list.
 - **Exit**: Closes the application.
 
-## How to Run
-
-1. Clone this repository to your local machine:
-   ```bash
-   git clone https://github.com/your-username/contact-list.git
